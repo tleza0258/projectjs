@@ -19,25 +19,35 @@ router.get('/login',(req,res)=>{
 })
 
 //login post
+router.post('/register', async (req, res) => {
+    const user = new User({
+        userID: req.body.userID,
+        password : req.body.password,
+        name : req.body.name,
+        address : req.body.address,
+        email : req.body.email
+    })
+    try {
+        const newUser = await user.save()
+        res.status(201).json(newUser)
+        }catch (err) {
+        res.status(400).json({ message: err.message })
+        }
+})
+
+//login post
 router.post('/login',async (req, res) => {
     const{userID,password} = req.body
     const user = await User.findOne({
         userID,
         password
     })
-    console.log(userID)
-    console.log(password)
     if (user){
         req.session.user = user
-        return res.render('checkroom')
+        return res.render('index',{user})
     }else{
         return res.render('login')
     }
-})
-
-
-router.get('/register',(req,res)=>{
-    res.render('register')
 })
 
 router.get('/checkroom',(req,res)=>{
@@ -56,10 +66,10 @@ router.get('/success',(req,res)=>{
 })
 
 router.post('/register', async (req, res) => {
-    const {userID,password,name,address,email} = req.body
+    const {userID,password,name,address,mail} = req.body
 
     const user = new User({
-        userID,password,name,address,email
+        userID,password,name,address,mail
     })
 
     try {

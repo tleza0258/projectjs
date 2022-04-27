@@ -44,28 +44,31 @@ router.get('/checkroom',(req,res)=>{
     res.render('checkroom')
 })
 
-router.post('/register',(req, res) => {
-    const user = new User({
-        userID: req.body.userID,
-        password: req.body.password,
-        name: req.body.name,
-        address: req.body.address,
-        mail: req.body.mail
-
-    })
-    
-    try {
-        user.save()
-        console.log("เซฟเเล้ว")
-        if(user){
-            return res.redirect('/login')
-        }
-        
-        }catch (err) {
-        return res.status(400).json({ message: err.message })
-        }
-    
+router.get('/rent',(req,res)=>{
+    res.render('rent')
 })
+router.get('/modify',(req,res)=>{
+    res.render('modify')
+})
+
+router.get('/success',(req,res)=>{
+    res.render('success')
+})
+
+router.post('/register', async (req, res) => {
+    const {userID,password,name,address,email} = req.body
+
+    const user = new User({
+        userID,password,name,address,email
+    })
+
+    try {
+        const newUser = await user.save()
+        res.status(201).json(newUser)
+    }catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+}) 
 
 router.get('/logout',(req,res)=>{
     req.session = null

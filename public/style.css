@@ -5,9 +5,10 @@ body{
     padding: 0;
     font-family: Inder;
     font-family: montserrat;
-    background: #2691d9;
+    background-image: url("img/bg1.png");
     display: block;
 }
+
 nav{
    
     width: 100%;

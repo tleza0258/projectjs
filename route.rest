@@ -1,0 +1,38 @@
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "userID": "123@hotmail.com",
+    "password": "123",
+    "name": "M",
+    "address": "1234",
+    "mail" : "1234@hotmail.com"
+    
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "userID": "123@hotmail.com",
+    "password": "123"
+    
+}
+
+###
+POST http://localhost:3000/register1
+Content-Type: application/json
+
+{
+    "userID": "6306021630013@fitm.kmutnb.ac.th",
+    "password": "123",
+    "name": "กิตติพงษ์",
+    "room": 506,
+    "elec_use":1000,
+    "roomate":4,
+    "Status":false,
+    "image" : ""
+}

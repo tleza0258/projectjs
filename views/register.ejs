@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Register </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="center">
+            <h1> Sign UP! </h1>
+            <form method="post" action="/register" >
+                <div class="txt_field">
+                    <input type="text" name="userID" >
+                    <span></span>
+                    <label> Username </label></input >
+                </div>
+                <div class="txt_field">
+                    <input type = "password" name = "password" required>
+                    <span></span>
+                    <label> Password </label>
+                </div>
+                <div class="txt_field">
+                    <input type = "text" name = "name" required>
+                    <span></span>
+                    <label> Name </label>
+                </div>
+                <div class="txt_field">
+                    <input type = "text" name = "address" required>
+                    <span></span>
+                    <label> Address </label>
+                </div>
+                <div class="txt_field">
+                    <input type = "email" name = "mail" required>
+                    <span></span>
+                    <label> E-Mail </label>
+                </div>
+                <button type="submit" value="Sign Up">Sign up</button>
+                <div class="signup_link">
+                     Have an account? <a href="/login"> Log in </a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

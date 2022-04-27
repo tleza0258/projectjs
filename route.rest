@@ -1,0 +1,35 @@
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "userID": "123@hotmail.com",
+    "password": "123",
+    "name": "M",
+    "address": "1234",
+    "mail" : "1234@hotmail.com"
+    
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "userID": "123@hotmail.com",
+    "password": "123"
+    
+}
+
+###
+POST http://room-it.app.ruk-com.cloud/register
+Content-Type: application/json
+
+{
+    "userID": "6306021630013@fitm.kmutnb.ac.th",
+    "password": "123",
+    "name": "กิตติพงษ์",
+    "address": 506,
+    "email":1000
+}
